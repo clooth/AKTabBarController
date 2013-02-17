@@ -23,7 +23,6 @@
 #import "AKTabBar.h"
 
 static int kInterTabMargin = 1;
-static int kTopEdgeWidth   = 1;
 
 @implementation AKTabBar
 
@@ -97,7 +96,7 @@ static int kTopEdgeWidth   = 1;
 
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
         CGGradientRef gradient = _tabColors ? CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)_tabColors, locations) : CGGradientCreateWithColorComponents (colorSpace, components, locations, num_locations);
-        CGContextSetBlendMode(ctx, kCGBlendModeMultiply);
+        CGContextSetBlendMode(ctx, kCGBlendModeNormal);
         CGContextDrawLinearGradient(ctx, gradient, CGPointMake(0, 0), CGPointMake(0, rect.size.height), kCGGradientDrawsAfterEndLocation);
 
         CGColorSpaceRelease(colorSpace);
