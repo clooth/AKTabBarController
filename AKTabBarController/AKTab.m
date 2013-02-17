@@ -204,7 +204,6 @@ static const float kTopMargin = 2.0;
 
     } else if (self.selected) {
 
-        // We fill the background with a noise pattern
         CGContextSaveGState(ctx);
         {
             // We set the parameters of th gradient multiply blend
@@ -223,10 +222,8 @@ static const float kTopMargin = 2.0;
         }
         CGContextRestoreGState(ctx);
 
-
         if (isTabIconPresent)
         {
-
             // We draw the inner gradient
             CGContextSaveGState(ctx);
             {
@@ -249,17 +246,6 @@ static const float kTopMargin = 2.0;
             }
             CGContextRestoreGState(ctx);
         }
-
-        if (displayTabTitle) {
-            CGContextSaveGState(ctx);
-            {
-                UIColor *textColor = [UIColor colorWithRed:0.961 green:0.961 blue:0.961 alpha:1.0];
-                CGContextSetFillColorWithColor(ctx, _selectedTextColor ? _selectedTextColor.CGColor : textColor.CGColor);
-                [tabTitleLabel.text drawInRect:labelRect withFont:tabTitleLabel.font lineBreakMode:NSLineBreakByTruncatingMiddle  alignment:UITextAlignmentCenter];
-            }
-            CGContextRestoreGState(ctx);
-        }
-
     }
 
 }
